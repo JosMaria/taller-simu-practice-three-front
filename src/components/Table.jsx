@@ -1,30 +1,25 @@
+import { TableHeader } from './TableHeader';
+import { Row } from './Row';
+
 import '../stylesheets/Table.css';
 
 export const Table = ({ rows }) => {
   return (
     <table className='table-container'>
-      <thead>
-        <tr>
-          <th>n</th>
-          <th>X</th>
-          <th>X*X=X²</th>
-          <th>Ceros a la izquierda</th>
-          <th>X n+1</th>
-          <th>R i</th>
-        </tr>
-      </thead>
+      <TableHeader />
       <tbody>
-        {
-        rows.map((row) => 
-          <tr key={row.numberOfRow}>
-            <td>{row.numberOfRow}</td>
-            <td>{row.valueOne}</td>
-            <td>{row.valueTwo}</td>
-            <td>{row.valueThree}</td>
-            <td>{row.valueFour}</td>
-            <td>{row.valueFive}</td>
-          </tr>)
-        }
+      {
+      rows.map((row) =>
+        <Row 
+          key={row.numberOfRow} 
+          numberOfRow={row.numberOfRow} 
+          valueOne={row.valueOne}
+          valueTwo={row.valueTwo}
+          valueThree={row.valueThree}
+          valueFour={row.valueFour}
+          valueFive={row.valueFive}
+        />)
+      }
       </tbody>
     </table>
   )
