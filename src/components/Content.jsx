@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { dataOfMiddleSquare } from '../api/axios';
-import { Table } from './Table'
+import { Table } from './Table';
+import { Form } from './Form';
 
 import '../stylesheets/Content.css';
 
@@ -15,6 +16,7 @@ export const Content = () => {
   return (
     <div className='content-container'>
       <h1>Practica 3 - Cuadrados Medios</h1>
+      <Form />
       <Table rows={rows} />
     </div>
     
