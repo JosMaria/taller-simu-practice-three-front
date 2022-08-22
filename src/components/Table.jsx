@@ -1,7 +1,8 @@
+import '../stylesheets/Table.css';
 
 export const Table = ({ rows }) => {
   return (
-    <table>
+    <table className='table-container'>
       <thead>
         <tr>
           <th>n</th>
@@ -15,7 +16,7 @@ export const Table = ({ rows }) => {
       <tbody>
         {
         rows.map((row) => 
-          <tr>
+          <tr key={row.numberOfRow}>
             <td>{row.numberOfRow}</td>
             <td>{row.valueOne}</td>
             <td>{row.valueTwo}</td>
