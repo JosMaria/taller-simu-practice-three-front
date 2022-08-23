@@ -7,16 +7,17 @@ import '../stylesheets/Content.css';
 
 export const Content = () => {  
   const [rows, setRows] = useState([]);
+  const [payload, setPayload] = useState({ seed: 0, times: 0 })
   
   useEffect(() => {
-    dataOfMiddleSquare(5356, 5)
+    dataOfMiddleSquare(payload.seed, payload.times)
       .then(data => setRows(data));
-  }, []);
+  }, [payload]);
 
   return (
     <div className='content-container'>
       <h1>Cuadrados Medios</h1>
-      <Form />
+      <Form statePayload={setPayload} />
       <Table rows={rows} />
     </div>
     

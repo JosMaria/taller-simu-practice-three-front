@@ -3,11 +3,11 @@ import { validationOfSeed, validationNumberOfIterations } from '../utils/validat
 
 import '../stylesheets/Form.css';
 
-export const Form = () => {
+export const Form = ({ statePayload }) => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   
   const customSubmit = (data) => {
-    console.log(data);
+    statePayload(data)
   }
 
   const inputDataSeed = 
