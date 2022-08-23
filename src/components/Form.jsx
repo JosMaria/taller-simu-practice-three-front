@@ -9,23 +9,35 @@ export const Form = () => {
     console.log(data);
   }
 
+  const inputDataSeed = 
+    <div className='input-data-container'>
+      <label className='text-label'>Semilla</label>
+      <input className='text-input' type='text' {...register('seed', {
+        required: true
+      })} />
+    </div>
+
+  const inputDataTimes = 
+    <div className='input-data-container'>
+      <label className='text-label'>Número de iteraciones</label>
+      <input className='text-input' type='text' {...register('times', { 
+        required: true
+      })} />
+    </div>
+    
+  const inputs = 
+    <>
+      { inputDataSeed }
+      { errors.seed?.type === 'required' && <p>campo obligatorio</p> }
+      { inputDataTimes }
+      { errors.times?.type === 'required' && <p>campo obligatorio</p> }
+    </>
+    
+
   return (
     <form className='form-container' onSubmit={handleSubmit(customSubmit)}>
-      <div>
-        <label>Semilla</label>
-        <input type='text' {...register('seed', {
-          required: true
-        })} />
-        { errors.seed?.type === 'required' && <p>La semilla es requerida</p> }
-      </div>
-      <div>
-        <label>Número de iteraciones</label>
-        <input type='text' {...register('times', { 
-          required: true 
-        })} />
-        { errors.times?.type === 'required' && <p>Numero de iteraciones requerida</p>}
-      </div>
-      <input type='submit' value='Empezar' />
+      { inputs }
+      <input className='button-input' type='submit' value='Empezar' />
     </form>
   )
 }

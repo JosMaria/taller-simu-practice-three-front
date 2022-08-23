@@ -15,7 +15,7 @@ export const Content = () => {
 
   return (
     <div className='content-container'>
-      <h1>Practica 3 - Cuadrados Medios</h1>
+      <h1>Cuadrados Medios</h1>
       <Form />
       <Table rows={rows} />
     </div>
