@@ -19,7 +19,6 @@ export const Content = () => {
       <h1>Cuadrados Medios</h1>
       <Form statePayload={setPayload} />
       <Table rows={rows} />
-    </div>
-    
+    </div> 
   )
 }
