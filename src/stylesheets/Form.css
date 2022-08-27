@@ -33,7 +33,7 @@
   font-weight: bold;
   width: 100px;
   height: 40px;
-  background-color: #009879;
+  background-color: var(--background-color-app);
   color: #fff;
   margin-top: 10px;
   user-select: none;
