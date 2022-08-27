@@ -1,7 +1,14 @@
 import { Content } from './components/Content';
+import { Menu } from './components/Menu';
+
+import './stylesheets/App.css';
+
 
 export const App = () => {
   return (
-    <Content />
+    <div className="app-container">
+      <Menu />
+      <Content />
+    </div>
   );
 }
