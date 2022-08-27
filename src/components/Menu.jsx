@@ -4,6 +4,8 @@ import { BsListNested } from "react-icons/bs";
 import { FiChevronRight } from 'react-icons/fi';
 
 import '../stylesheets/Menu.css';
+import { MenuItem } from './MenuItem';
+
 
 export const Menu = () => {
   const [itemCongruential, setItemCongruential] = useState({ clicked: false, height: '0' });
@@ -17,12 +19,23 @@ export const Menu = () => {
     setItemCongruential(updated);
   }
 
-  const nonCongruentialClicked = () => {
+  /*const nonCongruentialClicked = () => {
     const updated = {}
     updated.clicked = !itemNonCongruential.clicked;
     updated.height = itemNonCongruential.clicked ? '0' : '3.6em';
     setItemNonCongruential(updated);
-  }
+  }*/
+
+  /* DATA ITEMS */
+
+  const heightMenuItem = '3.6em';
+  const [itemMenuClicked, setItemMenuClicked] = useState(false);
+  const [itemMenuHeight, setItemMenuHeight] = useState('0');
+
+  const menuClickedTemp = () => {
+    setItemMenuClicked(!itemMenuClicked);
+    setItemMenuHeight(itemMenuClicked ? '0' : heightMenuItem)
+  } 
 
   return (
     <nav className='menu__container'>
@@ -30,13 +43,15 @@ export const Menu = () => {
         <BiMenu className='icon' />
       </div>
       <ul className={`list ${menuClicked ? 'translate' : ''}`}>
-        <li className='list__item list__item--click' onClick={nonCongruentialClicked}>
-          <div className={`list__button list__button--click ${itemNonCongruential.clicked ? 'arrow' : ''}`}>
+        
+        <MenuItem height={'5.1em'} />
+        {/* <li className='list__item list__item--click' onClick={menuClickedTemp}>
+          <div className={`list__button list__button--click ${itemMenuClicked ? 'arrow' : ''}`}>
             <BsListNested className='list__icon' />
             <a herf='#' className='nav__link'>NO CONGRUENCIALES</a>
             <FiChevronRight className='list__arrow' />
           </div>
-          <ul className='list__show' style={{ height: itemNonCongruential.height }}>
+          <ul className='list__show' style={{ height: itemMenuHeight }}>
             <li className='list__inside'>
               <a href='#' className='nav__link nav__link--inside'>Cuadrados Medios</a>
             </li>
@@ -47,8 +62,8 @@ export const Menu = () => {
               <a href='#' className='nav__link nav__link--inside'>Multiplicador Constante</a>
             </li>
           </ul>
-        </li>
-        <li className='list__item list__item--click' onClick={congruentialClicked}>
+        </li> */}
+        {/* <li className='list__item list__item--click' onClick={congruentialClicked}>
           <div className={`list__button list__button--click ${itemCongruential.clicked ? 'arrow' : ''}`}>
             <BsListNested className='list__icon' />
             <a herf='#' className='nav__link'>CONGRUENCIALES</a>
@@ -71,7 +86,7 @@ export const Menu = () => {
               <a href='#' className='nav__link nav__link--inside'>Blum Blum y Shub</a>
             </li>
           </ul>
-        </li>
+        </li> */}
       </ul>
     </nav>
   )
