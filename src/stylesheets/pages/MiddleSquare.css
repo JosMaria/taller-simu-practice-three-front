@@ -3,12 +3,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+	gap: 10px;
+	padding-top: 10px;
 }
 
 .form {
 	width: 20em;
 	padding: 15px;
-	background-color: white;
+	background-color: var(--color-app);
 	display: flex;
 	flex-direction: column;	
 	justify-content: center;
@@ -41,13 +43,13 @@ h1 {
 	width: fit-content;
 	padding: 10px 20px;
 	border-radius: 5px;
-	color: #fff;
+	color: var(--color-app);
 	font-size: 1em;
 	transition: .3s ease all;
 }
 
 .button-submit:hover {
-  background: #022d8b;
+  background: var(--background-color-hover-app);
 }
 
 .successfully {
@@ -67,7 +69,7 @@ h1 {
 }
 
 .label {
-	font-size: 1em;
+	font-size: 1.3em;
 }
 
 .field {

@@ -19,12 +19,11 @@ export const MiddleSquare = () => {
   return (
     <div className='middle-square-container'>
       <h1>Cuadrados Medios</h1>
-      <FormMiddleSquare />
+      <FormMiddleSquare />|·
       <Table rows={rows} titleHeaders={titleHeaders} />
     </div>
   )
 }
-
 
 const FormMiddleSquare = () => {
   const [isSent, setIsSent] = useState(false);
@@ -37,14 +36,18 @@ const FormMiddleSquare = () => {
         resetForm();
         console.log(values);
         setIsSent(true);
-        setTimeout(() => setIsSent(!isSent), 3000);
+        setTimeout(() => setIsSent(!isSent), 2000);
       }}
 
       validate={(values) => {
         let validation = {}
-        // Validations seed
-        // Validations iterations
-        return validation;
+        /*if (!values.seed) {
+          validation.seed = 'Ingrese la semilla';
+        }
+        if (!values.times) {
+          validation.times = 'Ingrese las repeticiones';
+        }*/
+        return validation
       }}
     >
       {({ errors }) => (
@@ -59,23 +62,8 @@ const FormMiddleSquare = () => {
               messageError={errors.times}
               name='times' />
           </div>
-          
-          {/* <div>
-            <label className='label'>Semilla</label>
-            <Field 
-              name='seed'
-            />
-            <ErrorMessage name='seed' component={() => (<div className='message-error'>{errors.seed}</div>)}/>
-          </div> */}
-          {/* <div>
-            <label className='label'>Iteraciones</label>
-            <Field 
-              name='times'
-            />
-            <ErrorMessage name='times' component={() => (<div className='message-error'>{errors.times}</div>)}/>
-          </div>   */}
           <button className='button-submit' type='submit'>Comenzar</button>
-          {isSent && <p className='successfully'>Fomulario enviado con exito</p>}
+          {isSent && <p className='successfully'>Proceso terminado con exito</p>}
         </Form>
       )}
     </Formik>

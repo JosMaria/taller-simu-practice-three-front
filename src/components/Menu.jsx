@@ -9,7 +9,7 @@ import { API_BASE_URL } from '../environment';
 const Data = () => {
   const childrenFirstMenu = 
     <>
-      <ItemChildren titleItem='Cuadrados Medios' to={`${API_BASE_URL}/middleSquare?seed=x&times=x`} />
+      <ItemChildren titleItem='Cuadrados Medios' to={'/middleSquare'} />
       <ItemChildren titleItem='Productos Medios' to={`${API_BASE_URL}`} />
       <ItemChildren titleItem='Multiplicador Constante' to={`${API_BASE_URL}`} />
     </>
