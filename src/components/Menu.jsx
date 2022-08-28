@@ -4,24 +4,25 @@ import { MenuItem } from './MenuItem';
 import { ItemChildren } from './MenuItem';
 
 import '../stylesheets/Menu.css';
+import { API_BASE_URL } from '../environment';
 
 const Data = () => {
   const childrenFirstMenu = 
     <>
-      <ItemChildren titleItem='Cuadrados Medios' to={'#'} />
-      <ItemChildren titleItem='Productos Medios' to={'#'} />
-      <ItemChildren titleItem='Multiplicador Constante' to={'#'} />
+      <ItemChildren titleItem='Cuadrados Medios' to={`${API_BASE_URL}/middleSquare?seed=x&times=x`} />
+      <ItemChildren titleItem='Productos Medios' to={`${API_BASE_URL}`} />
+      <ItemChildren titleItem='Multiplicador Constante' to={`${API_BASE_URL}`} />
     </>
 
   const firstMenuItem = <MenuItem height={'6.2em'} children={childrenFirstMenu} />
 
   const childrenSecondMenu = 
     <>
-      <ItemChildren titleItem='Mixto' to={'#'} />
-      <ItemChildren titleItem='Multiplicativo' to={'#'} />
-      <ItemChildren titleItem='Aditivo' to={'#'} />
-      <ItemChildren titleItem='Cuadratico' to={'#'} />
-      <ItemChildren titleItem='Blum Blum y Shub' to={'#'} />
+      <ItemChildren titleItem='Mixto' to={`${API_BASE_URL}`} />
+      <ItemChildren titleItem='Multiplicativo' to={`${API_BASE_URL}`} />
+      <ItemChildren titleItem='Aditivo' to={`${API_BASE_URL}`} />
+      <ItemChildren titleItem='Cuadratico' to={`${API_BASE_URL}`} />
+      <ItemChildren titleItem='Blum Blum y Shub' to={`${API_BASE_URL}`} />
     </>
 
   const secondMenuItem = <MenuItem height={'10.6em'} children={childrenSecondMenu}/>
