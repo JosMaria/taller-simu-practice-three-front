@@ -6,5 +6,8 @@
   font-family: 'Mukta', sans-serif;
   font-family: 'Slabo 27px', serif;
   font-family: 'Zilla Slab', serif; 
-  --background-color-app: #7272a7;
+  --background-color-app: #195258;
+  --background-color-hover-app: #071618;
+  --color-app: #eaecee;
+
 }

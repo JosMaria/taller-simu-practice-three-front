@@ -7,13 +7,14 @@
 
 .icon {
   font-size: 3.4em;
-  background-color: #eaecee;
   padding: 10px;
+  color: var(--color-app);
+  background-color: var(--background-color-app);
 }
 
 .icon:hover {
   cursor: pointer;
-  background-color: #1E656D;
+  background-color: #071618;
 }
 
 .list {
@@ -21,7 +22,7 @@
   display: flex;
   flex-direction: column;
   padding: 10px 0; 
-  background-color: #195258;
+  background-color: var(--background-color-app);
   transform: translateX(0);
   transition: transform 1s;
   border-radius: 0 5% 5% 0; 
@@ -39,7 +40,7 @@
 }
 
 .list__button:hover {
-  background-color: #071618;
+  background-color: var(--background-color-hover-app);
 }
 
 .list__item--click {
@@ -57,7 +58,7 @@
 }
 
 .list__arrow {
-  color: #eaecee;
+  color: var(--color-app)
 }
 
 .arrow .list__arrow {
@@ -73,7 +74,7 @@
   display: block;
   padding: 5px 0;
   text-decoration: none;
-  color: rgb(236, 227, 227);
+  color: var(--color-app);
   font-weight: bold;
   text-align: center;
   user-select: none; 
@@ -87,19 +88,19 @@
 }
 
 .nav__link--inside:hover {
-  background-color: #071618
+  background-color: var(--background-color-hover-app)
 }
 
 .list__show {
   list-style: none;
   width: 90%;
   margin-left: auto;
-  border-left: 4px solid hsl(225, 14%, 22%);
+  border-left: 3px solid black;
   transition: height .3s;
   height: 0;
 }
 
 .list__icon {
   font-size: 1.4em;
-  color: #eaecee;
+  color: var(--color-app);
 }
