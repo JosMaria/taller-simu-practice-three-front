@@ -13,7 +13,7 @@
 
 .icon:hover {
   cursor: pointer;
-  background-color: var(--background-color-app);
+  background-color: #1E656D;
 }
 
 .list {
@@ -21,9 +21,10 @@
   display: flex;
   flex-direction: column;
   padding: 10px 0; 
-  background-color: var(--background-color-app);
+  background-color: #195258;
   transform: translateX(0);
   transition: transform 1s;
+  border-radius: 0 5% 5% 0; 
 }
 
 .list.translate {
@@ -38,7 +39,7 @@
 }
 
 .list__button:hover {
-  background-color: #eaecee;
+  background-color: #071618;
 }
 
 .list__item--click {
@@ -55,6 +56,10 @@
   margin: 0 auto;
 }
 
+.list__arrow {
+  color: #eaecee;
+}
+
 .arrow .list__arrow {
   transform: rotate(90deg);
 }
@@ -68,7 +73,7 @@
   display: block;
   padding: 5px 0;
   text-decoration: none;
-  color: black;
+  color: rgb(236, 227, 227);
   font-weight: bold;
   text-align: center;
   user-select: none; 
@@ -82,7 +87,7 @@
 }
 
 .nav__link--inside:hover {
-  background-color: #eaecee;
+  background-color: #071618
 }
 
 .list__show {
@@ -96,4 +101,5 @@
 
 .list__icon {
   font-size: 1.4em;
+  color: #eaecee;
 }

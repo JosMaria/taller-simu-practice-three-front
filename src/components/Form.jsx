@@ -17,7 +17,7 @@ export const Form = ({ statePayload }) => {
         required: true,
         validate: validationOfSeed
       })} />
-    </div>
+    </div> 
 
   const inputDataTimes = 
     <div className='input-data-container'>

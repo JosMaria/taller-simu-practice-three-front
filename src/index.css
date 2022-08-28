@@ -3,6 +3,8 @@
   margin: 0;
   box-sizing: border-box;
   font-family: 'Courier Prime', monospace;
-  font-weight: bold;
+  font-family: 'Mukta', sans-serif;
+  font-family: 'Slabo 27px', serif;
+  font-family: 'Zilla Slab', serif; 
   --background-color-app: #7272a7;
 }
