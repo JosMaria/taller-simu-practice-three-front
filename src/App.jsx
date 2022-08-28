@@ -3,12 +3,11 @@ import { Menu } from './components/Menu';
 
 import './App.css';
 
-
 export const App = () => {
   return (
-    <div className="app__container">
+    <div className='app__container'>
       <Menu />
-      <Content />
+      <Content title='Cuadrados Medios' />
     </div>
   );
 }

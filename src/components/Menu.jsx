@@ -13,7 +13,7 @@ const Data = () => {
       <ItemChildren titleItem='Multiplicador Constante' to={'#'} />
     </>
 
-  const firstMenuItem = <MenuItem height={'5.1em'} children={childrenFirstMenu} />
+  const firstMenuItem = <MenuItem height={'6.2em'} children={childrenFirstMenu} />
 
   const childrenSecondMenu = 
     <>
@@ -24,7 +24,7 @@ const Data = () => {
       <ItemChildren titleItem='Blum Blum y Shub' to={'#'} />
     </>
 
-  const secondMenuItem = <MenuItem height={'8.6em'} children={childrenSecondMenu}/>
+  const secondMenuItem = <MenuItem height={'10.6em'} children={childrenSecondMenu}/>
   return (
     <>
       {firstMenuItem}
