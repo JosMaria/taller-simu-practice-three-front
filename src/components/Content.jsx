@@ -5,7 +5,7 @@ import { Form } from './Form';
 
 import '../stylesheets/Content.css';
 
-export const Content = ({ title }) => {  
+export const Content = ({ title, titleHeaders }) => {  
   const [rows, setRows] = useState([]);
   const [payload, setPayload] = useState({ seed: 0, times: 0 })
   
@@ -13,12 +13,12 @@ export const Content = ({ title }) => {
     dataOfMiddleSquare(payload.seed, payload.times)
       .then(data => setRows(data));
   }, [payload]);
-
+  
   return (
     <div className='content-container'>
       <h1>{title}</h1>
       <Form statePayload={setPayload} />
-      <Table rows={rows} />
+      <Table rows={rows} titleHeaders={titleHeaders} />
     </div> 
   )
 }
