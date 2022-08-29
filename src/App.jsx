@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router';
 import { HomePage } from './pages/HomePage';
 import { MiddleSquare } from './pages/MiddleSquare';
 import { AverageProduct } from './pages/AverageProduct';
+import { ConstantMultiplier } from './pages/ConstantMultiplier';
 
 import './App.css';
 
@@ -14,7 +15,7 @@ export const App = () => {
         <Route path='/' element={<HomePage />} />
         <Route path='/middleSquare' element={<MiddleSquare />} />
         <Route path='/averageProduct' element={<AverageProduct />} />
-        <Route path='/constantMultiplier' element={<HomePage />} />
+        <Route path='/constantMultiplier' element={<ConstantMultiplier />} />
         <Route path='/mixed' element={<HomePage />} />
         <Route path='/multiplicative' element={<HomePage />} />
         <Route path='/additive' element={<HomePage />} />
