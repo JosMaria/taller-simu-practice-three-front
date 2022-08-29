@@ -41,12 +41,12 @@ const FormMiddleSquare = () => {
 
       validate={(values) => {
         let validation = {}
-        /*if (!values.seed) {
+        if (!values.seed) {
           validation.seed = 'Ingrese la semilla';
         }
         if (!values.times) {
           validation.times = 'Ingrese las repeticiones';
-        }*/
+        }
         return validation
       }}
     >
@@ -74,8 +74,10 @@ const LabelInputField = ({ textLabel, messageError, name }) => {
   const labelError = <div className='message-error'>{messageError}</div>
   return (
     <div className='label-input-field-container'>
-      <label className='label'>{textLabel}</label>
-      <Field className='field' name={name} />
+      <div className='label-input'>
+        <label className='label'>{textLabel}</label>
+        <Field className='field' name={name} />
+      </div>
       <ErrorMessage name={name} component={() => labelError}/>
     </div>  
   )

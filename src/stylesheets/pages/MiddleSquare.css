@@ -27,12 +27,6 @@ h1 {
   font-size: 2em;
 }
 
-.message-error {
-	color: #e92b2d;
-	font-weight: 600;
-	font-size: 12px;
-}
-
 .button-submit{
   display: block;
 	background: var(--background-color-app);
@@ -64,8 +58,16 @@ h1 {
 .label-input-field-container {
 	width: 18em;
 	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.label-input {
+	padding: 0 15px;
+	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	width: 100%;
 }
 
 .label {
@@ -76,8 +78,15 @@ h1 {
 	width: 8em;
 	border-radius: 5px;
 	border: 2px solid #e2e2e2;
-	font-size: 1em;
-	padding: 10px;
+	font-size: 0.9em;
+	padding: 0.6em;
 	margin-bottom: 5px;
 	color: #1f1f1f;
+}
+
+.message-error {
+	color: #e92b2d;
+	font-weight: 600;
+	font-size: 0.9em;
+	padding: 0 20px 5px 0;
 }
