@@ -22,12 +22,14 @@
 }
 
 .table-container tbody tr {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #e6e1e1;
 }
 
 .table-container tbody tr:nth-of-type(even) {
-  background-color: #e5e5e5;
+  background-color: #dbd8d8;
 }
+
+tr:nth-of-type()
 
 .table-container tbody tr:last-of-type {
   border-bottom: 4px solid #009879;

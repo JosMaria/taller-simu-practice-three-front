@@ -10,7 +10,7 @@ const Data = () => {
   const childrenFirstMenu = 
     <>
       <ItemChildren titleItem='Cuadrados Medios' to={'/middleSquare'} />
-      <ItemChildren titleItem='Productos Medios' to={`${API_BASE_URL}`} />
+      <ItemChildren titleItem='Productos Medios' to={'/averageProduct'} />
       <ItemChildren titleItem='Multiplicador Constante' to={`${API_BASE_URL}`} />
     </>
 

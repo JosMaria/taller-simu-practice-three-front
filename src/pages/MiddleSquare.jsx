@@ -1,6 +1,7 @@
-import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import { useEffect, useState } from 'react';
 import { dataOfMiddleSquare } from '../api/axios';
+import { LabelInputField } from '../components/LabelInputField';
 import { Table } from '../components/Table';
 
 import '../stylesheets/pages/MiddleSquare.css';
@@ -61,18 +62,16 @@ const FormMiddleSquare = ({ setPayload }) => {
       }}
     >
     {
-    ({ errors, handleSubmit }) => 
-      <Form className='form' onSubmit={handleSubmit}>
+    ({ errors }) => 
+      <Form className='form'>
         <div>
           <LabelInputField
             textLabel='Semilla' 
             messageError={errors.seed}
-            id='seed'
             name='seed' />
-          <LabelInputField 
+          <LabelInputField
             textLabel='Repeticiones' 
             messageError={errors.times}
-            id='times'
             name='times' />
         </div>
         <button type='submit' className='button-submit'>Comenzar</button>
@@ -80,18 +79,5 @@ const FormMiddleSquare = ({ setPayload }) => {
       </Form>
     }
     </Formik>
-  )
-}
-
-const LabelInputField = ({ textLabel, messageError, name }) => {
-  const labelError = <div className='message-error'>{messageError}</div>
-  return (
-    <div className='label-input-field-container'>
-      <div className='label-input'>
-        <label className='label'>{textLabel}</label>
-        <Field className='field' name={name} placeholder={name} />
-      </div>
-      <ErrorMessage name={name} component={() => labelError}/>
-    </div>  
   )
 }

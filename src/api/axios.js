@@ -12,6 +12,15 @@ const dataOfMiddleSquare = async (seed, times) => {
   return [];
 };
 
+const dataOfAverageProduct = async (seedOne, seedTwo, times) => {
+  if (seedOne !== 0 && seedTwo !== 0 && times !== 0) {
+    const response = await domain.get(`api/averageProduct?seedOne=${seedOne}&seedTwo=${seedTwo}&times=${times}`)
+    return response.data;
+  }
+  return [];
+};
+
 export {
-  dataOfMiddleSquare
+  dataOfMiddleSquare,
+  dataOfAverageProduct
 }
