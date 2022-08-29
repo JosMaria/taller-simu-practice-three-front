@@ -1,32 +1,32 @@
 import { Form, Formik } from 'formik';
 import { useEffect, useState } from 'react';
-import { dataOfAverageProduct } from '../api/axios';
+import { dataOfConstantMultiplier } from '../api/axios';
 import { LabelInputField } from '../components/LabelInputField';
 import { Table } from '../components/Table';
 
-import '../stylesheets/pages/AverageProduct.css';
+import '../stylesheets/pages/ConstantMultiplier.css';
 
-const titleHeaders = ['n', 'Xo', 'X1', 'X0 * X1', 'Xn+1', 'Ri'];
+const titleHeaders = ['n', 'a', 'X', 'a * X', 'Xn+1', 'Ri'];
 
-export const AverageProduct = () => {
+export const ConstantMultiplier = () => {
   const [rows, setRows] = useState([]);
-  const [payload, setPayload] = useState({ seedOne: 0, seedTwo: 0, times: 0 });
+  const [payload, setPayload] = useState({ seed: 0, constant: 0, times: 0 });
 
   useEffect(() => {
-    dataOfAverageProduct(payload.seedOne, payload.seedTwo, payload.times)
-      .then(data => setRows(data))
-  }, [payload])
+    dataOfConstantMultiplier(payload.seed, payload.constant, payload.times)
+    .then(data => setRows(data))
+  }, [payload]);
 
   return (
-    <div className='average-product-container'>
-      <h1>Productos Medios</h1>
-      <FormAverageProduct setPayload={setPayload} />
+    <div className='constant-multiplier-container'>
+      <h1>Multiplicador Constante</h1>
+      <FormConstantMultiplier setPayload={setPayload} />
       <Table titleHeaders={titleHeaders} rows={rows} />
     </div>
   )
 }
 
-const FormAverageProduct = ({ setPayload }) => {
+const FormConstantMultiplier = ({ setPayload }) => {
   const [isSent, setIsSent] = useState(false);
 
   const smallerThan = (number , numberLimit) => {
@@ -35,34 +35,35 @@ const FormAverageProduct = ({ setPayload }) => {
 
   return (
     <Formik
-      initialValues={{ seedOne: '', seedTwo: '', times: '' }}
-      
+      initialValues={{ seed: '', constant: '', times: '' }}
+
       validate={(values) => {
         let validation = {}
-        if (!values.seedOne) {
-          validation.seedOne = 'Ingrese la semilla 1';
+        if (!values.seed) {
+          validation.seed = 'Ingrese la semilla';
         }
-        if (!values.seedTwo) {
-          validation.seedTwo = 'Ingrese la semilla 2';
+        if (!values.constant) {
+          validation.constant = 'Ingrese la constante';
         }
         if (!values.times) {
           validation.times = 'Ingrese las repeticiones';
         }
 
-        if (smallerThan(parseInt(values.seedOne), 999)) {
-          validation.seedOne = 'La semilla 1 tiene que ser mayor a 3 digitos';
+        if (smallerThan(parseInt(values.seed), 999)) {
+          validation.seed = 'La semilla tiene que ser mayor a 3 digitos';
         }
-        if (smallerThan(parseInt(values.seedTwo), 999)) {
-          validation.seedTwo = 'La semilla 2 tiene que ser mayor a 3 digitos';
+        if (smallerThan(parseInt(values.constant), 999)) {
+          validation.constant = 'La constante tiene que ser mayor a 3 digitos';
         }
         if (smallerThan(parseInt(values.times), 0)) {
           validation.times = 'Las repeticiones tiene que ser mayor a 0';
         }
         return validation
       }}
-
+      
       onSubmit={(values, { resetForm }) => {
         setPayload(values);
+        console.log(values);
         resetForm();
         setIsSent(true);
         setTimeout(() => setIsSent(false), 2000);
@@ -71,14 +72,14 @@ const FormAverageProduct = ({ setPayload }) => {
     {({ errors }) => 
       <Form className='form'>
         <div>
-          <LabelInputField
-            textLabel='Semilla 1'
-            messageError={errors.seedOne}
-            name='seedOne' />
-          <LabelInputField
-            textLabel='Semilla 2'
-            messageError={errors.seedTwo}
-            name='seedTwo' />
+          <LabelInputField 
+            textLabel='Semilla'
+            messageError={errors.seed}
+            name='seed' />
+          <LabelInputField 
+            textLabel='Constante'
+            messageError={errors.constant}
+            name='constant'/>
           <LabelInputField
             textLabel='Repeticiones'
             messageError={errors.times}
@@ -90,4 +91,4 @@ const FormAverageProduct = ({ setPayload }) => {
     }
     </Formik>
   )
-};
+}
