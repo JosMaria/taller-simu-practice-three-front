@@ -8,7 +8,7 @@
 }
 
 .table-container thead tr {
-  background-color: #009879;
+  background-color: var(--background-color-app);
   color: #fff;
   text-align: center;
   font-weight: bold;
