@@ -19,7 +19,7 @@ export const MiddleSquare = () => {
   return (
     <div className='middle-square-container'>
       <h1>Cuadrados Medios</h1>
-      <FormMiddleSquare />|·
+      <FormMiddleSquare />
       <Table rows={rows} titleHeaders={titleHeaders} />
     </div>
   )
@@ -28,44 +28,57 @@ export const MiddleSquare = () => {
 const FormMiddleSquare = () => {
   const [isSent, setIsSent] = useState(false);
 
+  const smallerThan = (number , numberLimit) => {
+    return number <= numberLimit;
+  } 
+
   return (
     <Formik 
       initialValues={{ seed: '', times: '' }}
-
-      onSubmit={(values, { resetForm }) => {
-        resetForm();
-        console.log(values);
-        setIsSent(true);
-        setTimeout(() => setIsSent(!isSent), 2000);
-      }}
 
       validate={(values) => {
         let validation = {}
         if (!values.seed) {
           validation.seed = 'Ingrese la semilla';
         }
+        if (smallerThan(parseInt(values.seed), 999)) {
+          validation.seed = 'Semilla debe ser mayor a 3 digitos';
+        }
         if (!values.times) {
           validation.times = 'Ingrese las repeticiones';
         }
+        if (smallerThan(parseInt(values.times), 0)) {
+          validation.times = 'Repeticiones deben ser mayor a 0';
+        }
         return validation
       }}
+
+      onSubmit={(valores, { resetForm }) => {
+        console.log(valores);
+        resetForm();
+        setIsSent(true);
+        setTimeout(() => setIsSent(false), 1500);
+      }}
     >
-      {({ errors }) => (
-        <Form className='form'>
-          <div>
-            <LabelInputField
-              textLabel='Semilla' 
-              messageError={errors.seed}
-              name='seed' />
-            <LabelInputField 
-              textLabel='Repeticiones' 
-              messageError={errors.times}
-              name='times' />
-          </div>
-          <button className='button-submit' type='submit'>Comenzar</button>
-          {isSent && <p className='successfully'>Proceso terminado con exito</p>}
-        </Form>
-      )}
+    {
+    ({ errors, handleSubmit }) => 
+      <Form className='form' onSubmit={handleSubmit}>
+        <div>
+          <LabelInputField
+            textLabel='Semilla' 
+            messageError={errors.seed}
+            id='seed'
+            name='seed' />
+          <LabelInputField 
+            textLabel='Repeticiones' 
+            messageError={errors.times}
+            id='times'
+            name='times' />
+        </div>
+        <button type='submit' className='button-submit'>Comenzar</button>
+        {isSent && <p className='successfully'>Proceso terminado con exito</p>}
+      </Form>
+    }
     </Formik>
   )
 }
@@ -76,7 +89,7 @@ const LabelInputField = ({ textLabel, messageError, name }) => {
     <div className='label-input-field-container'>
       <div className='label-input'>
         <label className='label'>{textLabel}</label>
-        <Field className='field' name={name} />
+        <Field className='field' name={name} placeholder={name} />
       </div>
       <ErrorMessage name={name} component={() => labelError}/>
     </div>  
