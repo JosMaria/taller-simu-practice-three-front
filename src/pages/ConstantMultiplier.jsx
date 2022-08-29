@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { dataOfConstantMultiplier } from '../api/axios';
 import { LabelInputField } from '../components/LabelInputField';
 import { Table } from '../components/Table';
+
 import '../stylesheets/pages/ConstantMultiplier.css';
 
 const titleHeaders = ['n', 'a', 'X', 'a * X', 'Xn+1', 'Ri'];
@@ -14,12 +15,12 @@ export const ConstantMultiplier = () => {
   useEffect(() => {
     dataOfConstantMultiplier(payload.seed, payload.constant, payload.times)
     .then(data => setRows(data))
-  }, []);
+  }, [payload]);
 
   return (
     <div className='constant-multiplier-container'>
       <h1>Multiplicador Constante</h1>
-      <FormConstantMultiplier />
+      <FormConstantMultiplier setPayload={setPayload} />
       <Table titleHeaders={titleHeaders} rows={rows} />
     </div>
   )
@@ -35,9 +36,33 @@ const FormConstantMultiplier = ({ setPayload }) => {
   return (
     <Formik
       initialValues={{ seed: '', constant: '', times: '' }}
+
+      validate={(values) => {
+        let validation = {}
+        if (!values.seed) {
+          validation.seed = 'Ingrese la semilla';
+        }
+        if (!values.constant) {
+          validation.constant = 'Ingrese la constante';
+        }
+        if (!values.times) {
+          validation.times = 'Ingrese las repeticiones';
+        }
+
+        if (smallerThan(parseInt(values.seed), 999)) {
+          validation.seed = 'La semilla tiene que ser mayor a 3 digitos';
+        }
+        if (smallerThan(parseInt(values.constant), 999)) {
+          validation.constant = 'La constante tiene que ser mayor a 3 digitos';
+        }
+        if (smallerThan(parseInt(values.times), 0)) {
+          validation.times = 'Las repeticiones tiene que ser mayor a 0';
+        }
+        return validation
+      }}
       
       onSubmit={(values, { resetForm }) => {
-        /*setPayload(values);*/
+        setPayload(values);
         console.log(values);
         resetForm();
         setIsSent(true);
