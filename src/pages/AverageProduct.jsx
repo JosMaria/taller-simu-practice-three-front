@@ -68,8 +68,7 @@ const FormAverageProduct = ({ setPayload }) => {
         setTimeout(() => setIsSent(false), 2000);
       }}
     >
-    {
-      ({ errors }) => 
+    {({ errors }) => 
       <Form className='form'>
         <div>
           <LabelInputField
