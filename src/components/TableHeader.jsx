@@ -1,13 +1,10 @@
-export const TableHeader = () => {
+export const TableHeader = ({ titleHeaders }) => {
   return (
     <thead>
       <tr>
-        <th>n</th>
-        <th>X</th>
-        <th>X*X = X²</th>
-        <th>Ceros a la izquierda</th>
-        <th>Xn+1</th>
-        <th>Ri</th>
+      {
+        titleHeaders.map((titleHeader, index) => <th key={index}>{titleHeader}</th>)
+      }
       </tr>
     </thead>
   )

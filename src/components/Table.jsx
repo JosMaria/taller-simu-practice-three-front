@@ -3,10 +3,10 @@ import { Row } from './Row';
 
 import '../stylesheets/Table.css';
 
-export const Table = ({ rows }) => {
+export const Table = ({ rows, titleHeaders }) => {
   return (
     <table className='table-container'>
-      <TableHeader />
+      <TableHeader titleHeaders={titleHeaders}/>
       <tbody>
       {
       rows.map((row) =>
