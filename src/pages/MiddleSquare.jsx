@@ -62,8 +62,8 @@ const FormMiddleSquare = ({ setPayload }) => {
       }}
     >
     {
-    ({ errors, handleSubmit }) => 
-      <Form className='form' onSubmit={handleSubmit}>
+    ({ errors }) => 
+      <Form className='form'>
         <div>
           <LabelInputField
             textLabel='Semilla' 
