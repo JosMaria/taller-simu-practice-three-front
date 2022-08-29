@@ -7,16 +7,16 @@ import '../stylesheets/Menu.css';
 import { API_BASE_URL } from '../environment';
 
 const Data = () => {
-  const childrenFirstMenu = 
+  const childrenFirstMenu =
     <>
       <ItemChildren titleItem='Cuadrados Medios' to={'/middleSquare'} />
       <ItemChildren titleItem='Productos Medios' to={'/averageProduct'} />
-      <ItemChildren titleItem='Multiplicador Constante' to={`${API_BASE_URL}`} />
+      <ItemChildren titleItem='Multiplicador Constante' to={'/constantMultiplier'} />
     </>
 
   const firstMenuItem = <MenuItem height={'6.8em'} children={childrenFirstMenu} />
 
-  const childrenSecondMenu = 
+  const childrenSecondMenu =
     <>
       <ItemChildren titleItem='Mixto' to={`${API_BASE_URL}`} />
       <ItemChildren titleItem='Multiplicativo' to={`${API_BASE_URL}`} />
@@ -25,7 +25,7 @@ const Data = () => {
       <ItemChildren titleItem='Blum Blum y Shub' to={`${API_BASE_URL}`} />
     </>
 
-  const secondMenuItem = <MenuItem height={'11.2em'} children={childrenSecondMenu}/>
+  const secondMenuItem = <MenuItem height={'11.2em'} children={childrenSecondMenu} />
   return (
     <>
       {firstMenuItem}
@@ -36,7 +36,7 @@ const Data = () => {
 
 export const Menu = () => {
   const [menuClicked, setMenuClicked] = useState(false);
-  
+
   return (
     <nav className='menu__container'>
       <div className='hamburguer' onClick={() => setMenuClicked(!menuClicked)}>
