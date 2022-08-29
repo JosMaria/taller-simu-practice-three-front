@@ -67,12 +67,10 @@ const FormMiddleSquare = ({ setPayload }) => {
           <LabelInputField
             textLabel='Semilla' 
             messageError={errors.seed}
-            id='seed'
             name='seed' />
           <LabelInputField 
             textLabel='Repeticiones' 
             messageError={errors.times}
-            id='times'
             name='times' />
         </div>
         <button type='submit' className='button-submit'>Comenzar</button>
