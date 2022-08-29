@@ -19,13 +19,13 @@ export const MiddleSquare = () => {
   return (
     <div className='middle-square-container'>
       <h1>Cuadrados Medios</h1>
-      <FormMiddleSquare />
+      <FormMiddleSquare setPayload={setPayload} />
       <Table rows={rows} titleHeaders={titleHeaders} />
     </div>
   )
 }
 
-const FormMiddleSquare = () => {
+const FormMiddleSquare = ({ setPayload }) => {
   const [isSent, setIsSent] = useState(false);
 
   const smallerThan = (number , numberLimit) => {
@@ -53,11 +53,11 @@ const FormMiddleSquare = () => {
         return validation
       }}
 
-      onSubmit={(valores, { resetForm }) => {
-        console.log(valores);
+      onSubmit={(values, { resetForm }) => {
+        setPayload(values);
         resetForm();
         setIsSent(true);
-        setTimeout(() => setIsSent(false), 1500);
+        setTimeout(() => setIsSent(false), 2000);
       }}
     >
     {
