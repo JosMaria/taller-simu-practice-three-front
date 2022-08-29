@@ -1,6 +1,3 @@
-import { TableHeader } from './TableHeader';
-import { Row } from './Row';
-
 import '../stylesheets/Table.css';
 
 export const Table = ({ rows, titleHeaders }) => {
@@ -22,5 +19,30 @@ export const Table = ({ rows, titleHeaders }) => {
       }
       </tbody>
     </table>
+  )
+}
+
+const TableHeader = ({ titleHeaders }) => {
+  return (
+    <thead>
+      <tr>
+      {
+        titleHeaders.map((titleHeader, index) => <th key={index}>{titleHeader}</th>)
+      }
+      </tr>
+    </thead>
+  )
+}
+
+const Row = ({ numberOfRow, valueOne, valueTwo, valueThree, valueFour, valueFive }) => {
+  return (
+    <tr>
+      <td>{numberOfRow}</td>
+      <td>{valueOne}</td>
+      <td>{valueTwo}</td>
+      <td>{valueThree}</td>
+      <td>{valueFour}</td>
+      <td>{valueFive}</td>
+    </tr>
   )
 }
