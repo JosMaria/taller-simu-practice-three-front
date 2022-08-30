@@ -1,6 +1,7 @@
 import { Form, Formik } from 'formik';
 import { useState } from 'react';
 import { LabelInputField } from '../components/LabelInputField';
+import { SectionMessages } from '../components/SectionMessages';
 import { Table } from '../components/Table';
 
 import '../stylesheets/pages/Mixed.css';
@@ -15,6 +16,7 @@ export const Mixed = () => {
       <h1>Congruencial Mixto</h1>
       <FormMixed />
       <Table titleHeaders={titleHeaders} rows={rows} />
+      <SectionMessages />
     </div>
   )
 }
