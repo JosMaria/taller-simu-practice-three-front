@@ -28,8 +28,18 @@ const dataOfConstantMultiplier = async (seed, constant, times) => {
   return [];
 }
 
+const dataOfMixed = async (seed, multiplicative, additive, module ) => {
+  if (seed !== 0 &&  multiplicative !== 0 && additive !== 0 && module !== 0) {
+    const response = await domain.get(`api/mixed?seed=${seed}&multiplicative=${multiplicative}&additive=${additive}&module=${module}`);
+    
+    return response.data;
+  }
+  return { response: [], messages: [] };
+};
+
 export {
   dataOfMiddleSquare,
   dataOfAverageProduct,
-  dataOfConstantMultiplier
+  dataOfConstantMultiplier,
+  dataOfMixed
 }

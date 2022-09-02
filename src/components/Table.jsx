@@ -3,10 +3,9 @@ import '../stylesheets/Table.css';
 export const Table = ({ rows, titleHeaders }) => {
   return (
     <table className='table-container'>
-      <TableHeader titleHeaders={titleHeaders}/>
+      <TableHeader titleHeaders={titleHeaders} />
       <tbody>
-      {
-      rows.map((row) =>
+      {rows.map((row) =>
         <Row 
           key={row.numberOfRow} 
           numberOfRow={row.numberOfRow} 
@@ -14,8 +13,7 @@ export const Table = ({ rows, titleHeaders }) => {
           valueTwo={row.valueTwo}
           valueThree={row.valueThree}
           valueFour={row.valueFour}
-          valueFive={row.valueFive}
-        />)
+          valueFive={row.valueFive} />)
       }
       </tbody>
     </table>

@@ -1,6 +1,6 @@
 import '../stylesheets/SectionMessages.css';
 
-export const SectionMessages = ({ messages = ['primer mensaje', 'segundo mensaje', 'tercer mensaje']}) => {
+export const SectionMessages = ({ messages = []}) => {
   return (
     <div className='section-messages-container'>
       <h2 className='title-section-messages'>Mensajes del resultado</h2>
