@@ -29,8 +29,6 @@
   background-color: #dbd8d8;
 }
 
-tr:nth-of-type()
-
 .table-container tbody tr:last-of-type {
-  border-bottom: 4px solid #009879;
+  border-bottom: 4px solid var(--background-color-app);
 }
